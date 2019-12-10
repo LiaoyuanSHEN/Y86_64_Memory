@@ -11,9 +11,9 @@ public class MemoryTestClient {
     public static void main(String[] args) throws ComponentException {
         Bus bus = BusFactory.getBus();
         Memory memory = bus.getComponent(ComponentId.MEMORY);
-        memory.write(0, 123);
-        System.out.println(memory.read(0));
-        System.out.println(memory.read(1L + Integer.MAX_VALUE));
+        memory.writeByte(0, (byte) 123);
+        System.out.println(memory.readByte(0));
+        System.out.println(memory.readByte(1L + Integer.MAX_VALUE));
     }
 
 }

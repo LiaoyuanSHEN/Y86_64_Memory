@@ -10,10 +10,10 @@ public class MemoryImpl implements Memory {
 
     // 128MB total memory
     private static final int MAX_LENGTH = 1024 * 1024 * 128;
-    private long[] memory = new long[MAX_LENGTH];
+    private byte[] memory = new byte[MAX_LENGTH];
 
     @Override
-    public long read(long address) throws MemoryException {
+    public byte readByte(long address) throws MemoryException {
         if (address < 0 || address > Integer.MAX_VALUE) {
             throw new MemoryOutOfBoundException();
         }
@@ -21,7 +21,7 @@ public class MemoryImpl implements Memory {
     }
 
     @Override
-    public void write(long address, long value) throws MemoryException {
+    public void writeByte(long address, byte value) throws MemoryException {
         if (address < 0 || address > MAX_LENGTH) {
             throw new MemoryOutOfBoundException();
         }
